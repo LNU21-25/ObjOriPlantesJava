@@ -21,7 +21,7 @@ class StarTest {
 
   /*@Test
   void testStarConstructor_radiusTooSmall() {
-    assertThrows(IllegalArgumentException.class, () -> new Star("TestStar", 166900));
+    assertThrows(IllegalArgumentException.class, () -> new Star("TestStar", 16699));
   }*/
 
   /*@Test
