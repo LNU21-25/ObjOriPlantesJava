@@ -8,6 +8,13 @@ import org.junit.jupiter.api.Test;
 class PlanetTest {
 
   /*@Test
+  void testPlanetConstructor_validInput() {
+    Planet planet = new Planet("Test", 10000);
+    assertEquals("Test", planet.getName());
+    assertEquals(10000, planet.getAvgRadiusInKm());
+  }*/
+
+  /*@Test
   void testPlanetConstructor_nullName() {
     assertThrows(IllegalArgumentException.class, () -> new Planet(null, 1000));
   }*/
@@ -27,10 +34,5 @@ class PlanetTest {
     assertThrows(IllegalArgumentException.class, () -> new Planet("Test", 2000001));
   }*/
 
-  /*@Test
-  void testPlanetConstructor_validInput() {
-    Planet planet = new Planet("Test", 10000);
-    assertEquals("Test", planet.getName());
-    assertEquals(10000, planet.getAvgRadiusInKm());
-  }*/
+  
 }
