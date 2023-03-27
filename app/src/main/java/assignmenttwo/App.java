@@ -11,7 +11,7 @@ package assignmenttwo;
 public class App {
 
   private void sunPlanetMoon() {
-  
+    new SolarSystem();
   }
 
   private void heavenlyBody() {
