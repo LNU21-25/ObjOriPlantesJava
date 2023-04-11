@@ -9,80 +9,73 @@ public class Star extends HeavenlyBody {
 
   private Planet[] planets = new Planet[0];
 
-  /**creates a star.
-
-   * @param name name
-   * @param avgRadiusInKm radius
-   * @throws Exception only if invalid input
+  /**
+   * Creates a star with the specified name and radius.
+   *
+   * @param name          the star name
+   * @param avgRadiusInKm the average radius in kilometers
    */
   public Star(String name, int avgRadiusInKm) {
     super(name, avgRadiusInKm);
-    try {
-      name.length();
-    } catch (Exception e) {
-      throw new IllegalArgumentException("Invalid moon");
-    }
-    if (name.equals("") || avgRadiusInKm <  150000) {
-      throw new IllegalArgumentException("Invalid moon");
-    }
+    validateStar(name, avgRadiusInKm);
   }
 
-  /**creates a star.
-
-   * @param s star
+  /**
+   * Creates a star by copying the properties of the given star.
+   *
+   * @param s the star to copy
    */
   public Star(Star s) {
     super(s.getName(), s.getAvgRadiusInKm());
-    try {
-      s.getName().length();
-    } catch (Exception e) {
-      throw new IllegalArgumentException("Invalid moon");
-    }
+    validateStar(s.getName(), s.getAvgRadiusInKm());
     this.planets = s.planets;
   }
 
   /**
-   * addPlanet adds a planet to the solar system.
+   * Validates the star name and radius.
+   *
+   * @param name          the star name
+   * @param avgRadiusInKm the average radius in kilometers
+   */
+  private void validateStar(String name, int avgRadiusInKm) {
+    if (name == null || name.isEmpty() || avgRadiusInKm < 150000) {
+      throw new IllegalArgumentException("Invalid star: invalid name or radius");
+    }
+  }
 
-   * @param planetName string
-   * @param avgRadiusInKm int
+  /**
+   * addPlanet adds a planet to the solar system.
+   * 
+   * @param planetName         string
+   * @param avgRadiusInKm      int
    * @param avgOrbitRadiusInKm int
    */
   public Planet addPlanet(String planetName, int avgRadiusInKm, int avgOrbitRadiusInKm) {
-    try {
-      planetName.length();
-    } catch (Exception e) {
-      throw new IllegalArgumentException("Invalid moon");
-    }
-    if (planetName.equals("") || avgRadiusInKm < 2000 
-        || avgRadiusInKm > 200000 || avgOrbitRadiusInKm < 18000 
-        || avgOrbitRadiusInKm > 200000) {
-      throw new IllegalArgumentException("Invalid planet");
-    }
     Planet newPlanet = new Planet(planetName, avgRadiusInKm, avgOrbitRadiusInKm);
     addPlanet(newPlanet);
     return newPlanet;
   }
 
-  /**adds a planet.
-
+  /**
+   * adds a planet.
+   * 
    * @param p planet
    */
-  public void addPlanet(Planet p) {
-    Planet[] temp = new Planet[planets.length + 2];
-    int loc = 0;
-    for (Planet pl : planets) {
-      temp[loc] = pl;
-      loc++;
+  private void addPlanet(Planet newPlanet) {
+    if (newPlanet != null) {
+      int newSize = planets.length + 1;
+      Planet[] newPlanetsArray = new Planet[newSize];
+      System.arraycopy(planets, 0, newPlanetsArray, 0, planets.length);
+      newPlanetsArray[newSize - 1] = newPlanet;
+      planets = newPlanetsArray;
+    } else {
+      throw new IllegalArgumentException("Invalid planet: null object");
     }
-    temp[loc] = p;
-    planets = Arrays.copyOfRange(temp, 0, loc + 1);
   }
-
 
   /**
    * gets an array of the child heavenly bodies.
-
+   * 
    * @return HeavenlyBody[] heavenlybodies.
    */
   public HeavenlyBody[] getHeavenlyBodies() {
@@ -105,19 +98,26 @@ public class Star extends HeavenlyBody {
 
   /**
    * gets the toString for this star.
-
+   * 
    * @return String toString
    */
+  @Override
   public String toString() {
-    String ret = "Star: " + getName() + ", average radius " + getAvgRadiusInKm() + "km\n\n";
-    for (Planet p : planets) {
-      if (!(p == null)) {
-        ret += p.toString() + "\n";
-      } else {
-        break;
+    String result = "Solar System:\n";
+    result += "  Star: " + getName() + ", average radius " + getAvgRadiusInKm() + "km\n";
+  
+    if (planets.length > 0) {
+      result += "\n  Planets:\n";
+      for (Planet planet : planets) {
+        result += "    " + planet.toString() + "\n";
       }
     }
-    return ret;
-  }
   
+    result += "\n  Some moons:\n";
+    for (Planet planet : planets) {
+      result += planet.moonsToString();
+    }
+  
+    return result;
+  }
 }
