@@ -108,12 +108,12 @@ public class Planet extends HeavenlyBody {
     int index = 1;
     heavenlyBodies[0] = new Planet(this);
     for (Moon moon : moons) {
-        heavenlyBodies[index] = new Moon(moon);
-        index++;
+      heavenlyBodies[index] = new Moon(moon);
+      index++;
     }
     
     return heavenlyBodies;
-}
+  }
 
   /**
    * gets the tostring.

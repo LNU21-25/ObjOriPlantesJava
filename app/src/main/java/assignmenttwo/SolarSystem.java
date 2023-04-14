@@ -46,7 +46,7 @@ public class SolarSystem {
     for (HeavenlyBody hb : sun.getHeavenlyBodies()) {
       if (hb != null) {
         ret += hb.hbString() + "\n";
-    }
+      }
     }
     return ret;
   }
