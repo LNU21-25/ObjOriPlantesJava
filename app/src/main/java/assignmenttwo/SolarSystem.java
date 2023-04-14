@@ -37,6 +37,9 @@ public class SolarSystem {
     saturn.addMoon("Titan", 2575, 25750);
 
     System.out.println(sun);
+    for (HeavenlyBody hb : sun.getHeavenlyBodies()) {
+      System.out.println(hb.hbString());
+    }
   }
 
   /**sorts the objects and prints them.

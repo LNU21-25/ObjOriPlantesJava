@@ -12,7 +12,7 @@ public abstract class HeavenlyBody implements Comparable<HeavenlyBody> {
 
   /**
    * creates a new heavenlybody.
-
+   * 
    * @param name          name
    * @param avgRadiusInKm int
    */
@@ -23,7 +23,7 @@ public abstract class HeavenlyBody implements Comparable<HeavenlyBody> {
 
   /**
    * gets name.
-
+   * 
    * @return String name
    */
   public String getName() {
@@ -32,16 +32,16 @@ public abstract class HeavenlyBody implements Comparable<HeavenlyBody> {
 
   /**
    * sets name.
-
-   * @param name          name
+   * 
+   * @param name name
    */
   private void setName(String newName) {
     this.name = newName;
   }
-  
+
   /**
    * gets avgRadiusInKm.
-
+   * 
    * @return int
    */
   public int getAvgRadiusInKm() {
@@ -50,7 +50,7 @@ public abstract class HeavenlyBody implements Comparable<HeavenlyBody> {
 
   /**
    * sets avgRadiusInKm.
-
+   * 
    * @param avgRadiusInKm int
    */
   private void setAvgRadiusInKm(int avgRadiusInKm) {
@@ -59,17 +59,22 @@ public abstract class HeavenlyBody implements Comparable<HeavenlyBody> {
 
   /**
    * tostring for heavenlybody.
-
+   * 
    * @return String tostring
    */
-  public String toString() {
-    String ret = "";
-    return ret;
+  public String hbString() {
+    if (this instanceof Moon) {
+      return getClass().getSimpleName() + ": " + getName() + ", average radius " + getAvgRadiusInKm() + "km, average orbit radius" + ((Moon) this).getAvgOrbitRadiusInKm() + "km";
+    } else if (this instanceof Planet) {
+      return getClass().getSimpleName() + ": " + getName() + ", average radius " + getAvgRadiusInKm() + "km, number of moons " + ((Planet) this).getAvgOrbitRadiusInKm() + "km";
+    } else {
+      return getClass().getSimpleName() + ": " + getName() + ", average radius " + getAvgRadiusInKm() + "km";
+    }
   }
 
   /**
    * tostring for heavenlybody.
-
+   * 
    * @return String tostring
    */
   public String toOrderString() {
@@ -79,7 +84,7 @@ public abstract class HeavenlyBody implements Comparable<HeavenlyBody> {
 
   /**
    * tostring for heavenlybody.
-
+   * 
    * @return String tostring
    */
   @Override

@@ -1,7 +1,5 @@
 package assignmenttwo;
 
-import java.util.Arrays;
-
 /**
  * defines an abstract heavenlybody.
  */
@@ -79,21 +77,23 @@ public class Star extends HeavenlyBody {
    * @return HeavenlyBody[] heavenlybodies.
    */
   public HeavenlyBody[] getHeavenlyBodies() {
-    HeavenlyBody[] ret = new HeavenlyBody[100];
-    int loc = 1;
-    ret[0] = new Star(this);
-    for (Planet p : planets) {
-      ret[loc] = new Planet(p);
-      loc++;
-      HeavenlyBody[] pheavenly = p.getHeavenlyBodies();
-      pheavenly = Arrays.copyOfRange(pheavenly, 1, pheavenly.length);
-      for (HeavenlyBody m : pheavenly) {
-        ret[loc] = m;
-        loc++;
+    int size = 1; // initialize size to 1 for the current object
+    for (Planet planet : planets) {
+      size += 1 + planet.moons.length; // add planet and moon count to size
+    }
+    HeavenlyBody[] heavenlyBodies = new HeavenlyBody[size];
+    int index = 0;
+    heavenlyBodies[index] = this;
+    index++;
+    for (Planet planet : planets) {
+      heavenlyBodies[index] = (HeavenlyBody)planet;
+      index++;
+      for (HeavenlyBody moon : planet.getHeavenlyBodies()) {
+        heavenlyBodies[index] = moon;
+        index++;
       }
     }
-    ret = Arrays.copyOfRange(ret, 0, loc);
-    return ret;
+    return heavenlyBodies;
   }
 
   /**
@@ -105,19 +105,19 @@ public class Star extends HeavenlyBody {
   public String toString() {
     String result = "Solar System:\n";
     result += "  Star: " + getName() + ", average radius " + getAvgRadiusInKm() + "km\n";
-  
+
     if (planets.length > 0) {
       result += "\n  Planets:\n";
       for (Planet planet : planets) {
         result += "    " + planet.toString() + "\n";
       }
     }
-  
+
     result += "\n  Some moons:\n";
     for (Planet planet : planets) {
       result += planet.moonsToString();
     }
-  
+
     return result;
   }
 }

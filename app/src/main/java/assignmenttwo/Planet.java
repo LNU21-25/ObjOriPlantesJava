@@ -1,7 +1,5 @@
 package assignmenttwo;
 
-import java.util.Arrays;
-
 /**
  * defines a planet object.
  */
@@ -106,18 +104,16 @@ public class Planet extends HeavenlyBody {
    * @return HeavenlyBody[] bods
    */
   public HeavenlyBody[] getHeavenlyBodies() {
-    HeavenlyBody[] ret = new HeavenlyBody[100];
-    int loc = 1;
-    ret[0] = new Planet(this);
-    for (Moon m : moons) {
-      if (!(m == null)) {
-        ret[loc] = new Moon(m);
-        loc++;
-      }
+    HeavenlyBody[] heavenlyBodies = new HeavenlyBody[moons.length + 1];
+    int index = 0;
+    
+    heavenlyBodies[index++] = this;
+    for (Moon moon : moons) {
+        heavenlyBodies[index++] = moon;
     }
-    ret = Arrays.copyOfRange(ret, 0, loc);
-    return ret;
-  }
+    
+    return heavenlyBodies;
+}
 
   /**
    * gets the tostring.
