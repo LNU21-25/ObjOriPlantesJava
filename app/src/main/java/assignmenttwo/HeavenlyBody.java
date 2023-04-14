@@ -12,7 +12,7 @@ public abstract class HeavenlyBody implements Comparable<HeavenlyBody> {
 
   /**
    * creates a new heavenlybody.
-   * 
+
    * @param name          name
    * @param avgRadiusInKm int
    */
@@ -23,7 +23,7 @@ public abstract class HeavenlyBody implements Comparable<HeavenlyBody> {
 
   /**
    * gets name.
-   * 
+
    * @return String name
    */
   public String getName() {
@@ -32,7 +32,7 @@ public abstract class HeavenlyBody implements Comparable<HeavenlyBody> {
 
   /**
    * sets name.
-   * 
+
    * @param name name
    */
   private void setName(String newName) {
@@ -41,7 +41,7 @@ public abstract class HeavenlyBody implements Comparable<HeavenlyBody> {
 
   /**
    * gets avgRadiusInKm.
-   * 
+
    * @return int
    */
   public int getAvgRadiusInKm() {
@@ -50,7 +50,7 @@ public abstract class HeavenlyBody implements Comparable<HeavenlyBody> {
 
   /**
    * sets avgRadiusInKm.
-   * 
+
    * @param avgRadiusInKm int
    */
   private void setAvgRadiusInKm(int avgRadiusInKm) {
@@ -59,14 +59,16 @@ public abstract class HeavenlyBody implements Comparable<HeavenlyBody> {
 
   /**
    * tostring for heavenlybody.
-   * 
+
    * @return String tostring
    */
   public String hbString() {
     if (this instanceof Moon) {
-      return getClass().getSimpleName() + ": " + getName() + ", average radius " + getAvgRadiusInKm() + "km, average orbit radius " + ((Moon) this).getAvgOrbitRadiusInKm() + ",00km";
+      return "    " + getClass().getSimpleName() + ": " + getName() + ", average radius " + getAvgRadiusInKm() 
+          + "km, average orbit radius " + ((Moon) this).getAvgOrbitRadiusInKm() + ",00km";
     } else if (this instanceof Planet) {
-      return getClass().getSimpleName() + ": " + getName() + ", average radius " + getAvgRadiusInKm() + "km, average orbit radius " + ((Planet) this).getAvgOrbitRadiusInKm() + ",00km";
+      return "  " + getClass().getSimpleName() + ": " + getName() + ", average radius " + getAvgRadiusInKm() 
+          + "km, average orbit radius " + ((Planet) this).getAvgOrbitRadiusInKm() + ",00km";
     } else {
       return getClass().getSimpleName() + ": " + getName() + ", average radius " + getAvgRadiusInKm() + "km";
     }
@@ -74,7 +76,7 @@ public abstract class HeavenlyBody implements Comparable<HeavenlyBody> {
 
   /**
    * tostring for heavenlybody.
-   * 
+
    * @return String tostring
    */
   public String toOrderString() {
@@ -84,7 +86,7 @@ public abstract class HeavenlyBody implements Comparable<HeavenlyBody> {
 
   /**
    * tostring for heavenlybody.
-   * 
+
    * @return String tostring
    */
   @Override

@@ -4,28 +4,36 @@
 
 package assignmenttwo;
 
-
 /**
  * This is the generated Hello World Greeting App.
  */
 public class App {
   public SolarSystem solarSystem = new SolarSystem();
 
+  /**
+   * Prints the sun, planet, and moon.
+   */
   private void sunPlanetMoon() {
     System.out.println(solarSystem.sun.toString());
   }
-  
+
+  /**
+   * Prints the solar system.
+   */
   private void solarSytem() {
     System.out.println(solarSystem.getSunPlanetMoon());
   }
 
+  /**
+   * Prints the order in heaven.
+   */
   private void orderInHeaven() {
     System.out.println(solarSystem.getOrderInHeaven());
   }
 
   /**
    * The App starting point.
-   *
+
    * @param args Unused program arguments.
    */
   public static void main(String[] args) {

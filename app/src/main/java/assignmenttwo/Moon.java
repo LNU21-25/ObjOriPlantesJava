@@ -9,7 +9,7 @@ public class Moon extends HeavenlyBody {
 
   /**
    * creates a new moon.
-   * 
+
    * @param name               name
    * @param avgRadiusInKm      int
    * @param avgOrbitRadiusInKm int
@@ -23,7 +23,7 @@ public class Moon extends HeavenlyBody {
 
   /**
    * creates a new moon.
-   * 
+
    * @param name          name
    * @param avgRadiusInKm int
    */
@@ -34,7 +34,7 @@ public class Moon extends HeavenlyBody {
 
   /**
    * creates a new moon.
-   * 
+
    * @param m moon
    */
   public Moon(Moon m) {
@@ -45,19 +45,19 @@ public class Moon extends HeavenlyBody {
 
   /**
    * Validates the moon name and radius.
-   *
+
    * @param name          the moon name
    * @param avgRadiusInKm the average radius in kilometers
    */
   private void validateMoon(String name, int avgRadiusInKm) {
-    if (name == null || name.isEmpty() || avgRadiusInKm < 6 || avgRadiusInKm > 10000) {
+    if (name == null || name.isEmpty() || avgRadiusInKm < 6 || avgRadiusInKm > 5000) {
       throw new IllegalArgumentException("Invalid moon: invalid name or radius");
     }
   }
 
   /**
    * Validates the orbit radius.
-   *
+
    * @param avgOrbitRadiusInKm the average orbit radius in kilometers
    */
   private void validateOrbit(int avgOrbitRadiusInKm) {
@@ -68,7 +68,7 @@ public class Moon extends HeavenlyBody {
 
   /**
    * gets the average orbit radius.
-   * 
+
    * @return double
    */
   public int getAvgOrbitRadiusInKm() {
@@ -77,7 +77,7 @@ public class Moon extends HeavenlyBody {
 
   /**
    * tostring for moon.
-   * 
+
    * @return String tostring
    */
   @Override

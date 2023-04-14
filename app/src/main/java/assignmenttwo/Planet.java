@@ -5,12 +5,12 @@ package assignmenttwo;
  */
 public class Planet extends HeavenlyBody {
 
-  public Moon[] moons = new Moon[8];
+  public Moon[] moons = new Moon[0];
   private int avgOrbitRadiusInKm;
 
   /**
    * creates a planet.
-   * 
+
    * @param planetName         planet name
    * @param avgRadiusInKm      radius
    * @param avgOrbitRadiusInKm orbit
@@ -24,7 +24,7 @@ public class Planet extends HeavenlyBody {
 
   /**
    * creates a planet.
-   * 
+
    * @param planetName    planet name
    * @param avgRadiusInKm radius
    */
@@ -35,7 +35,7 @@ public class Planet extends HeavenlyBody {
 
   /**
    * creates a planet.
-   * 
+
    * @param p planet
    */
   public Planet(Planet p) {
@@ -46,30 +46,30 @@ public class Planet extends HeavenlyBody {
 
   /**
    * Validates the planet name and radius.
-   *
+
    * @param planetName    the planet name
    * @param avgRadiusInKm the average radius in kilometers
    */
   private void validatePlanet(String planetName, int avgRadiusInKm) {
-    if (planetName == null || planetName.isEmpty() || avgRadiusInKm < 1500 || avgRadiusInKm > 200000) {
+    if (planetName == null || planetName.isEmpty() || avgRadiusInKm < 2000 || avgRadiusInKm > 200000) {
       throw new IllegalArgumentException("Invalid planet: invalid name or radius");
     }
   }
 
   /**
    * Validates the orbit radius.
-   *
+
    * @param avgOrbitRadiusInKm the average orbit radius in kilometers
    */
   private void validateOrbit(int avgOrbitRadiusInKm) {
-    if (avgOrbitRadiusInKm < 17000 || avgOrbitRadiusInKm > 1000000) {
+    if (avgOrbitRadiusInKm < 18000 || avgOrbitRadiusInKm > 1000000) {
       throw new IllegalArgumentException("Invalid planet: invalid orbit radius");
     }
   }
 
   /**
    * adds a moon to this planet.
-   * 
+
    * @param moonName           name
    * @param avgRadiusInKm      int
    * @param avgOrbitRadiusInKm double
@@ -83,7 +83,7 @@ public class Planet extends HeavenlyBody {
 
   /**
    * adds a moon.
-   * 
+
    * @param m moon
    */
   private void addMoon(Moon newMoon) {
@@ -100,16 +100,15 @@ public class Planet extends HeavenlyBody {
 
   /**
    * gets sub-bodies.
-   * 
+
    * @return HeavenlyBody[] bods
    */
   public HeavenlyBody[] getHeavenlyBodies() {
     HeavenlyBody[] heavenlyBodies = new HeavenlyBody[moons.length + 1];
     int index = 1;
-    
-    heavenlyBodies[0] = this;
+    heavenlyBodies[0] = new Planet(this);
     for (Moon moon : moons) {
-        heavenlyBodies[index] = moon;
+        heavenlyBodies[index] = new Moon(moon);
         index++;
     }
     
@@ -118,7 +117,7 @@ public class Planet extends HeavenlyBody {
 
   /**
    * gets the tostring.
-   * 
+
    * @return String tostring
    */
   @Override
@@ -129,7 +128,7 @@ public class Planet extends HeavenlyBody {
 
   /**
    * gets the moons.
-   * 
+
    * @return String moons
    */
   public String moonsToString() {
@@ -146,7 +145,7 @@ public class Planet extends HeavenlyBody {
 
   /**
    * gets the average orbit radius.
-   * 
+
    * @return int avgOrbitRadiusInKm
    */
   public int getAvgOrbitRadiusInKm() {

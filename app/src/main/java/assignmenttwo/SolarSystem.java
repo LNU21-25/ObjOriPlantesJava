@@ -15,14 +15,14 @@ public class SolarSystem {
   public SolarSystem() {
     sun = new Star("Sun", 696342);
 
-    Planet earth = sun.addPlanet("Earth", 6371, 149600);
+    Planet earth = sun.addPlanet("Earth", 6371, 63710);
     earth.addMoon("Moon", 1737, 17370);
 
-    Planet mars = sun.addPlanet("Mars", 3389, 227900);
-    mars.addMoon("Phobos", 12, 12000);
-    mars.addMoon("Deimos", 6, 6000);
+    Planet mars = sun.addPlanet("Mars", 3389, 33890);
+    mars.addMoon("Phobos", 12, 120);
+    mars.addMoon("Deimos", 6, 60);
 
-    Planet jupiter = sun.addPlanet("Jupiter", 69911, 778500);
+    Planet jupiter = sun.addPlanet("Jupiter", 69911, 699110);
     jupiter.addMoon("Io", 1821, 18210);
     jupiter.addMoon("Europa", 1560, 15600);
     jupiter.addMoon("Ganymede", 2634, 26340);
@@ -38,6 +38,7 @@ public class SolarSystem {
   }
   /**
    * prints the solar system.
+
    * @return toprint
    */
   public String getSunPlanetMoon() {

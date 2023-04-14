@@ -9,7 +9,7 @@ public class Star extends HeavenlyBody {
 
   /**
    * Creates a star with the specified name and radius.
-   *
+
    * @param name          the star name
    * @param avgRadiusInKm the average radius in kilometers
    */
@@ -20,7 +20,7 @@ public class Star extends HeavenlyBody {
 
   /**
    * Creates a star by copying the properties of the given star.
-   *
+
    * @param s the star to copy
    */
   public Star(Star s) {
@@ -31,7 +31,7 @@ public class Star extends HeavenlyBody {
 
   /**
    * Validates the star name and radius.
-   *
+
    * @param name          the star name
    * @param avgRadiusInKm the average radius in kilometers
    */
@@ -43,7 +43,7 @@ public class Star extends HeavenlyBody {
 
   /**
    * addPlanet adds a planet to the solar system.
-   * 
+
    * @param planetName         string
    * @param avgRadiusInKm      int
    * @param avgOrbitRadiusInKm int
@@ -56,7 +56,7 @@ public class Star extends HeavenlyBody {
 
   /**
    * adds a planet.
-   * 
+
    * @param p planet
    */
   private void addPlanet(Planet newPlanet) {
@@ -73,7 +73,7 @@ public class Star extends HeavenlyBody {
 
   /**
    * gets an array of the child heavenly bodies.
-   * 
+
    * @return HeavenlyBody[] heavenlybodies.
    */
   public HeavenlyBody[] getHeavenlyBodies() {
@@ -83,7 +83,7 @@ public class Star extends HeavenlyBody {
     }
     HeavenlyBody[] heavenlyBodies = new HeavenlyBody[size];
     int index = 1;
-    heavenlyBodies[0] = this;
+    heavenlyBodies[0] = new Star(this);
     for (Planet planet : planets) {
       for (HeavenlyBody moon : planet.getHeavenlyBodies()) {
         heavenlyBodies[index] = moon;
@@ -95,7 +95,7 @@ public class Star extends HeavenlyBody {
 
   /**
    * gets the toString for this star.
-   * 
+
    * @return String toString
    */
   @Override
