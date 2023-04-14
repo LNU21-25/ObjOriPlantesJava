@@ -7,7 +7,7 @@ import java.util.Arrays;
  */
 public class SolarSystem {
 
-  private Star sun;
+  public Star sun;
 
   /**
    * creates default value for the solar system.
@@ -35,19 +35,28 @@ public class SolarSystem {
     saturn.addMoon("Dione", 561, 5610);
     saturn.addMoon("Rhea", 764, 7640);
     saturn.addMoon("Titan", 2575, 25750);
-
-    System.out.println(sun);
-    for (HeavenlyBody hb : sun.getHeavenlyBodies()) {
-      System.out.println(hb.hbString());
-    }
   }
+  /**
+   * prints the solar system.
+   * @return toprint
+   */
+  public String getSunPlanetMoon() {
+    String ret = "";
+    for (HeavenlyBody hb : sun.getHeavenlyBodies()) {
+      if (hb != null) {
+        ret += hb.hbString() + "\n";
+    }
+    }
+    return ret;
+  }
+
 
   /**sorts the objects and prints them.
 
-   * @param hb heavenly bodies
    * @return toprint
    */
-  public String orderInHeaven(HeavenlyBody[] hb) {
+  public String getOrderInHeaven() {
+    HeavenlyBody[] hb = sun.getHeavenlyBodies();
     HeavenlyBody[] finish = new HeavenlyBody[hb.length];
     int loc = 0;
     for (HeavenlyBody test : hb) {
@@ -58,7 +67,6 @@ public class SolarSystem {
     }
     HeavenlyBody[] sorted = new HeavenlyBody[loc];
     System.arraycopy(finish, 0, sorted, 0, loc);
-    System.err.println("SORTING");
     Arrays.sort(sorted, HeavenlyBody::compareTo);
     String ret = "";
     for (HeavenlyBody body : sorted) {

@@ -9,17 +9,18 @@ package assignmenttwo;
  * This is the generated Hello World Greeting App.
  */
 public class App {
+  public SolarSystem solarSystem = new SolarSystem();
 
   private void sunPlanetMoon() {
-    new SolarSystem();
+    System.out.println(solarSystem.sun.toString());
   }
-
-  private void heavenlyBody() {
-
-  }
-
+  
   private void solarSytem() {
-    
+    System.out.println(solarSystem.getSunPlanetMoon());
+  }
+
+  private void orderInHeaven() {
+    System.out.println(solarSystem.getOrderInHeaven());
   }
 
   /**
@@ -30,7 +31,7 @@ public class App {
   public static void main(String[] args) {
     App theApp = new App();
     theApp.sunPlanetMoon();
-    theApp.heavenlyBody();
     theApp.solarSytem();
+    theApp.orderInHeaven();
   }
 }

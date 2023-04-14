@@ -64,9 +64,9 @@ public abstract class HeavenlyBody implements Comparable<HeavenlyBody> {
    */
   public String hbString() {
     if (this instanceof Moon) {
-      return getClass().getSimpleName() + ": " + getName() + ", average radius " + getAvgRadiusInKm() + "km, average orbit radius" + ((Moon) this).getAvgOrbitRadiusInKm() + "km";
+      return getClass().getSimpleName() + ": " + getName() + ", average radius " + getAvgRadiusInKm() + "km, average orbit radius " + ((Moon) this).getAvgOrbitRadiusInKm() + ",00km";
     } else if (this instanceof Planet) {
-      return getClass().getSimpleName() + ": " + getName() + ", average radius " + getAvgRadiusInKm() + "km, number of moons " + ((Planet) this).getAvgOrbitRadiusInKm() + "km";
+      return getClass().getSimpleName() + ": " + getName() + ", average radius " + getAvgRadiusInKm() + "km, average orbit radius " + ((Planet) this).getAvgOrbitRadiusInKm() + ",00km";
     } else {
       return getClass().getSimpleName() + ": " + getName() + ", average radius " + getAvgRadiusInKm() + "km";
     }
@@ -89,7 +89,7 @@ public abstract class HeavenlyBody implements Comparable<HeavenlyBody> {
    */
   @Override
   public int compareTo(HeavenlyBody other) {
-    return other.avgRadiusInKm - this.avgRadiusInKm;
+    return this.avgRadiusInKm - other.avgRadiusInKm;
   }
 
 }

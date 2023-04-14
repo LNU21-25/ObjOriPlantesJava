@@ -105,11 +105,12 @@ public class Planet extends HeavenlyBody {
    */
   public HeavenlyBody[] getHeavenlyBodies() {
     HeavenlyBody[] heavenlyBodies = new HeavenlyBody[moons.length + 1];
-    int index = 0;
+    int index = 1;
     
-    heavenlyBodies[index++] = this;
+    heavenlyBodies[0] = this;
     for (Moon moon : moons) {
-        heavenlyBodies[index++] = moon;
+        heavenlyBodies[index] = moon;
+        index++;
     }
     
     return heavenlyBodies;

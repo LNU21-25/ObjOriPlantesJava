@@ -82,12 +82,9 @@ public class Star extends HeavenlyBody {
       size += 1 + planet.moons.length; // add planet and moon count to size
     }
     HeavenlyBody[] heavenlyBodies = new HeavenlyBody[size];
-    int index = 0;
-    heavenlyBodies[index] = this;
-    index++;
+    int index = 1;
+    heavenlyBodies[0] = this;
     for (Planet planet : planets) {
-      heavenlyBodies[index] = (HeavenlyBody)planet;
-      index++;
       for (HeavenlyBody moon : planet.getHeavenlyBodies()) {
         heavenlyBodies[index] = moon;
         index++;
