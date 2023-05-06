@@ -63,7 +63,7 @@ dependencies {
 
 application {
     // Define the main class for the application.
-    mainClass = 'assignment2.App'
+    mainClass = 'assignmenttwo.App'
 }
 
 run {
